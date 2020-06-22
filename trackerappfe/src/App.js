@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import DeviceList from "./Components/DeviceList";
+import MapView from "./Components/MapView";
 
 const _DEVICE_LIST_API = "http://localhost:9090/devices/fetch";
 
@@ -50,14 +51,13 @@ function App() {
         setDevices(JSON.parse(result));
       }, error => console.log('error', error));
     // }
-
-
   }, []);
 
   return (
     <div className="App">
-
+      {/* <DeviceList devices={devices} /> */}
       <DeviceList devices={devices} />
+      <MapView />
     </div>
   );
 }

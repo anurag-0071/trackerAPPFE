@@ -26,7 +26,8 @@ function DeviceList({
       // backgroundColor: theme.palette.common.black,
       // color: theme.palette.common.white,
       fontSize: 20,
-      fontWeight: "bolder"
+      fontWeight: "bolder",
+      backgroundColor: "red"
     },
     body: {
       fontSize: 14,
@@ -38,10 +39,16 @@ function DeviceList({
     },
   }))(TableCell);
 
+  const handleClick = () => {
+    alert('clicked')
+  }
+
   return (
-    <div>
-      <TableContainer>
-        <Table>
+    <div style={{ alignSelf: "flex-end" }}>
+      <TableContainer style={{ width: "50vw", height: "100vh" }}>
+        <Table
+        // style={{ padding: "1em" }}
+        >
           <TableHead>
             <TableRow>
               <StyledTableCell key={"title"} align={"left"}>
@@ -49,15 +56,17 @@ function DeviceList({
               </StyledTableCell>
             </TableRow>
           </TableHead>
-          {devices ? devices.map(d => {
-            return (
-              <TableBody>
-                <StyledTableCell>
-                  {d.id}
-                </StyledTableCell>
-              </TableBody>
-            )
-          }) : null}
+          <TableBody>
+            {devices ? devices.map(d => {
+              return (
+                <TableRow key={d.id}>
+                  <StyledTableCell onClick={handleClick}>
+                    {d.id}
+                  </StyledTableCell>
+                </TableRow>
+              )
+            }) : null}
+          </TableBody>
         </Table>
       </TableContainer>
     </div>
