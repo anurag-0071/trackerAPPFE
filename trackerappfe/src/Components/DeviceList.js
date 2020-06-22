@@ -27,14 +27,11 @@ function DeviceList({
       // color: theme.palette.common.white,
       fontSize: 20,
       fontWeight: "bolder",
-      backgroundColor: "red"
+      // backgroundColor: "red"
     },
     body: {
       fontSize: 14,
       // color: theme.palette.common.white,
-      // backgroundColor: "#282c34",
-      // borderColor: "red",
-      // border: 1,
       m: 1,
     },
   }))(TableCell);
